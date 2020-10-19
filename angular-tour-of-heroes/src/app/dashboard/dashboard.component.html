@@ -1,0 +1,52 @@
+<h2>Feedback Form</h2>
+
+<div class="container">
+    <form [formGroup]="myGroup" (ngSubmit)="OnSubmit()">
+        <mat-form-field class="example-half-width">
+            <mat-label>Name</mat-label>
+            <input matInput type="text" class="form-control" name="name" id="name" formControlName="name">
+            <mat-error *ngIf="name.invalid" class="alert alert-danger">
+                <mat-error *ngIf="name.errors.required">
+                    Name is required.
+                </mat-error>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-half-width">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" class="form-control" name="email" id="email" formControlName="email">
+            <mat-error *ngIf="email.invalid" class="alert alert-danger">
+                <mat-error *ngIf="email.errors.required">
+                    Email is required.
+                </mat-error>
+                <mat-error *ngIf="email.errors.email">Email must be a valid email address</mat-error>
+            </mat-error>
+        </mat-form-field>
+
+        <div>
+            <mat-label>Feedback:</mat-label>
+            <mat-radio-group formControlName="feedback">
+                <mat-radio-button style="margin-left: 55px;" value="Great">Great</mat-radio-button>
+                <mat-radio-button style="margin-left: 55px;" value="Okay">Okay</mat-radio-button>
+                <mat-radio-button style="margin-left: 55px;" value="Not good">Not good</mat-radio-button>
+            </mat-radio-group>
+            <mat-error *ngIf="feedback.invalid" class="alert alert-danger">
+                <mat-error *ngIf="feedback.errors.required">
+                    Feedback is required.
+                </mat-error>
+            </mat-error>
+        </div>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Leave a Comment</mat-label>
+            <textarea matInput type="text" class="form-control" name="comment" id="comment" formControlName="comment"></textarea>
+        </mat-form-field>
+        <button type="submit" [disabled]="!myGroup.valid" class="btn btn-success button button4"> Submit </button>
+    </form>
+    <div class="row">
+        <div class="col-xs-12">
+            <p class="alert alert-success">
+                <strong class="success">{{showMsg}}</strong>
+            </p>
+        </div>
+    </div>
+</div>

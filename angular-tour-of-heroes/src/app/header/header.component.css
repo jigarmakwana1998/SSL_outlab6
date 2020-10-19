@@ -1,0 +1,22 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.example-container {
+    width: 400px;
+    height: 200px;
+    margin: 12px;
+    border: 1px solid #555;
+}
+
+a {
+    padding: 5px 10px;
+    text-decoration: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: normal;
+    color: black;
+    margin: 10px;
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 4px;
+}
